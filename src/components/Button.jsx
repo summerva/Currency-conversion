@@ -1,9 +1,17 @@
-const Button = () => {
-    return (
-        <button className="currency_button">
-            Обменять
-        </button>
-    )
-}
+const Button = (props) => {
+  const {
+    className = '',
+    onClick,
+    children,
+  } = props;
+  return (
+    <button
+      className={`button ${className}`}
+      onClick={onClick}
+    >
+      {children}
+    </button>
+  );
+};
 
-export default Button
+export default Button;

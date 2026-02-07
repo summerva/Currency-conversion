@@ -21,14 +21,15 @@ button {
   align-items: center;
   justify-content: center;
   gap: 25px;
-  width: 600px;
+  width: 700px;
   border-radius: 10px;
   border: var(--border);
 }
 
-.currency_flex{
+.currency_flex {
   display: flex;
-  gap: 25px;
+  align-items: start;
+  gap: 40px;
 }
 
 .currency_list {
@@ -48,6 +49,8 @@ button {
   border-radius: 5px;
   border: var(--border);
   padding: 5px;
+  width: 100%;
+  max-width: 280px;
 
   &:hover {
     cursor: pointer;
@@ -57,21 +60,24 @@ button {
 .currency_inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 25px;
+  align-items: stretch;
+  max-width: 280px;
+  gap: 15px;
 }
 
 .currency_input {
-  display: flex;
-  gap: 10px;
+  position: relative;
+  width: 100%;
 }
 
 .currency_input input {
+  width: 100%;
   border-radius: 10px;
   border: var(--border);
-  padding: 5px;
+  padding: 12px;
   background-color: var(--color-black);
+  box-sizing: border-box;
+  transition: border-color 0.3s;
 
   &:hover,
   &:focus {
@@ -81,9 +87,42 @@ button {
     cursor: pointer;
   }
 
+  &:not(:placeholder-shown) {
+    background-color: var(--color-white);
+  }
+
+  &.error {
+    border-color: #ff4444 !important;
+    box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+  }
 }
 
-.currency_button {
+.error-message {
+  color: #ff4444;
+  font-size: 12px;
+  margin-top: 4px;
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+}
+
+.input-with-symbol {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.currency-symbol {
+  font-weight: bold;
+  font-size: 18px;
+  min-width: 25px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1;
+}
+
+.button {
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
@@ -92,16 +131,22 @@ button {
   border: var(--border);
   border-radius: 10px;
   padding: 5px;
+  max-height: 40px;
   
   &:not(:disabled) {
     &:hover {
-    color: var(--color-black);
-    background-color: var(--color-white);
+      color: var(--color-black);
+      background-color: var(--color-white);
     }
 
     &:active {
       scale: 1.05;
     }
   }
+}
 
+.switch {
+  display: inline-flex;
+  width: 70px;
+  align-items: center;
 }
